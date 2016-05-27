@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CD64B55A1CF8804000BED3BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B5591CF8804000BED3BF /* main.m */; };
+		CD64B55D1CF8804000BED3BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B55C1CF8804000BED3BF /* AppDelegate.m */; };
+		CD64B5601CF8804000BED3BF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B55F1CF8804000BED3BF /* ViewController.m */; };
+		CD64B5631CF8804000BED3BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD64B5611CF8804000BED3BF /* Main.storyboard */; };
+		CD64B5651CF8804000BED3BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD64B5641CF8804000BED3BF /* Assets.xcassets */; };
+		CD64B5681CF8804000BED3BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD64B5661CF8804000BED3BF /* LaunchScreen.storyboard */; };
+		CD64B5731CF8804000BED3BF /* CamShareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B5721CF8804000BED3BF /* CamShareTests.m */; };
+		CD64B57E1CF8804000BED3BF /* CamShareUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B57D1CF8804000BED3BF /* CamShareUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CD64B56F1CF8804000BED3BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD64B54D1CF8803F00BED3BF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD64B5541CF8803F00BED3BF;
+			remoteInfo = CamShare;
+		};
+		CD64B57A1CF8804000BED3BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD64B54D1CF8803F00BED3BF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD64B5541CF8803F00BED3BF;
+			remoteInfo = CamShare;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CD64B5551CF8803F00BED3BF /* CamShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CamShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD64B5591CF8804000BED3BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CD64B55B1CF8804000BED3BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CD64B55C1CF8804000BED3BF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CD64B55E1CF8804000BED3BF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CD64B55F1CF8804000BED3BF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CD64B5621CF8804000BED3BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CD64B5641CF8804000BED3BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CD64B5671CF8804000BED3BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CD64B5691CF8804000BED3BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD64B56E1CF8804000BED3BF /* CamShareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CamShareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD64B5721CF8804000BED3BF /* CamShareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CamShareTests.m; sourceTree = "<group>"; };
+		CD64B5741CF8804000BED3BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD64B5791CF8804000BED3BF /* CamShareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CamShareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD64B57D1CF8804000BED3BF /* CamShareUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CamShareUITests.m; sourceTree = "<group>"; };
+		CD64B57F1CF8804000BED3BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CD64B5521CF8803F00BED3BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD64B56B1CF8804000BED3BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD64B5761CF8804000BED3BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CD64B54C1CF8803F00BED3BF = {
+			isa = PBXGroup;
+			children = (
+				CD64B5571CF8803F00BED3BF /* CamShare */,
+				CD64B5711CF8804000BED3BF /* CamShareTests */,
+				CD64B57C1CF8804000BED3BF /* CamShareUITests */,
+				CD64B5561CF8803F00BED3BF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CD64B5561CF8803F00BED3BF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD64B5551CF8803F00BED3BF /* CamShare.app */,
+				CD64B56E1CF8804000BED3BF /* CamShareTests.xctest */,
+				CD64B5791CF8804000BED3BF /* CamShareUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD64B5571CF8803F00BED3BF /* CamShare */ = {
+			isa = PBXGroup;
+			children = (
+				CD64B55B1CF8804000BED3BF /* AppDelegate.h */,
+				CD64B55C1CF8804000BED3BF /* AppDelegate.m */,
+				CD64B55E1CF8804000BED3BF /* ViewController.h */,
+				CD64B55F1CF8804000BED3BF /* ViewController.m */,
+				CD64B5611CF8804000BED3BF /* Main.storyboard */,
+				CD64B5641CF8804000BED3BF /* Assets.xcassets */,
+				CD64B5661CF8804000BED3BF /* LaunchScreen.storyboard */,
+				CD64B5691CF8804000BED3BF /* Info.plist */,
+				CD64B5581CF8803F00BED3BF /* Supporting Files */,
+			);
+			path = CamShare;
+			sourceTree = "<group>";
+		};
+		CD64B5581CF8803F00BED3BF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CD64B5591CF8804000BED3BF /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CD64B5711CF8804000BED3BF /* CamShareTests */ = {
+			isa = PBXGroup;
+			children = (
+				CD64B5721CF8804000BED3BF /* CamShareTests.m */,
+				CD64B5741CF8804000BED3BF /* Info.plist */,
+			);
+			path = CamShareTests;
+			sourceTree = "<group>";
+		};
+		CD64B57C1CF8804000BED3BF /* CamShareUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CD64B57D1CF8804000BED3BF /* CamShareUITests.m */,
+				CD64B57F1CF8804000BED3BF /* Info.plist */,
+			);
+			path = CamShareUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CD64B5541CF8803F00BED3BF /* CamShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD64B5821CF8804000BED3BF /* Build configuration list for PBXNativeTarget "CamShare" */;
+			buildPhases = (
+				CD64B5511CF8803F00BED3BF /* Sources */,
+				CD64B5521CF8803F00BED3BF /* Frameworks */,
+				CD64B5531CF8803F00BED3BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CamShare;
+			productName = CamShare;
+			productReference = CD64B5551CF8803F00BED3BF /* CamShare.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CD64B56D1CF8804000BED3BF /* CamShareTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD64B5851CF8804000BED3BF /* Build configuration list for PBXNativeTarget "CamShareTests" */;
+			buildPhases = (
+				CD64B56A1CF8804000BED3BF /* Sources */,
+				CD64B56B1CF8804000BED3BF /* Frameworks */,
+				CD64B56C1CF8804000BED3BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD64B5701CF8804000BED3BF /* PBXTargetDependency */,
+			);
+			name = CamShareTests;
+			productName = CamShareTests;
+			productReference = CD64B56E1CF8804000BED3BF /* CamShareTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CD64B5781CF8804000BED3BF /* CamShareUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD64B5881CF8804000BED3BF /* Build configuration list for PBXNativeTarget "CamShareUITests" */;
+			buildPhases = (
+				CD64B5751CF8804000BED3BF /* Sources */,
+				CD64B5761CF8804000BED3BF /* Frameworks */,
+				CD64B5771CF8804000BED3BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD64B57B1CF8804000BED3BF /* PBXTargetDependency */,
+			);
+			name = CamShareUITests;
+			productName = CamShareUITests;
+			productReference = CD64B5791CF8804000BED3BF /* CamShareUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CD64B54D1CF8803F00BED3BF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Albert Le";
+				TargetAttributes = {
+					CD64B5541CF8803F00BED3BF = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					CD64B56D1CF8804000BED3BF = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = CD64B5541CF8803F00BED3BF;
+					};
+					CD64B5781CF8804000BED3BF = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = CD64B5541CF8803F00BED3BF;
+					};
+				};
+			};
+			buildConfigurationList = CD64B5501CF8803F00BED3BF /* Build configuration list for PBXProject "CamShare" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CD64B54C1CF8803F00BED3BF;
+			productRefGroup = CD64B5561CF8803F00BED3BF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD64B5541CF8803F00BED3BF /* CamShare */,
+				CD64B56D1CF8804000BED3BF /* CamShareTests */,
+				CD64B5781CF8804000BED3BF /* CamShareUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CD64B5531CF8803F00BED3BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD64B5681CF8804000BED3BF /* LaunchScreen.storyboard in Resources */,
+				CD64B5651CF8804000BED3BF /* Assets.xcassets in Resources */,
+				CD64B5631CF8804000BED3BF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD64B56C1CF8804000BED3BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD64B5771CF8804000BED3BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CD64B5511CF8803F00BED3BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD64B5601CF8804000BED3BF /* ViewController.m in Sources */,
+				CD64B55D1CF8804000BED3BF /* AppDelegate.m in Sources */,
+				CD64B55A1CF8804000BED3BF /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD64B56A1CF8804000BED3BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD64B5731CF8804000BED3BF /* CamShareTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD64B5751CF8804000BED3BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD64B57E1CF8804000BED3BF /* CamShareUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CD64B5701CF8804000BED3BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD64B5541CF8803F00BED3BF /* CamShare */;
+			targetProxy = CD64B56F1CF8804000BED3BF /* PBXContainerItemProxy */;
+		};
+		CD64B57B1CF8804000BED3BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD64B5541CF8803F00BED3BF /* CamShare */;
+			targetProxy = CD64B57A1CF8804000BED3BF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CD64B5611CF8804000BED3BF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD64B5621CF8804000BED3BF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CD64B5661CF8804000BED3BF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD64B5671CF8804000BED3BF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CD64B5801CF8804000BED3BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CD64B5811CF8804000BED3BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CD64B5831CF8804000BED3BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CamShare/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = albeeele.CamShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CD64B5841CF8804000BED3BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CamShare/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = albeeele.CamShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CD64B5861CF8804000BED3BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CamShareTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = albeeele.CamShareTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CamShare.app/CamShare";
+			};
+			name = Debug;
+		};
+		CD64B5871CF8804000BED3BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CamShareTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = albeeele.CamShareTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CamShare.app/CamShare";
+			};
+			name = Release;
+		};
+		CD64B5891CF8804000BED3BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CamShareUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = albeeele.CamShareUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CamShare;
+			};
+			name = Debug;
+		};
+		CD64B58A1CF8804000BED3BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CamShareUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = albeeele.CamShareUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CamShare;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CD64B5501CF8803F00BED3BF /* Build configuration list for PBXProject "CamShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD64B5801CF8804000BED3BF /* Debug */,
+				CD64B5811CF8804000BED3BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD64B5821CF8804000BED3BF /* Build configuration list for PBXNativeTarget "CamShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD64B5831CF8804000BED3BF /* Debug */,
+				CD64B5841CF8804000BED3BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CD64B5851CF8804000BED3BF /* Build configuration list for PBXNativeTarget "CamShareTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD64B5861CF8804000BED3BF /* Debug */,
+				CD64B5871CF8804000BED3BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CD64B5881CF8804000BED3BF /* Build configuration list for PBXNativeTarget "CamShareUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD64B5891CF8804000BED3BF /* Debug */,
+				CD64B58A1CF8804000BED3BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CD64B54D1CF8803F00BED3BF /* Project object */;
+}
