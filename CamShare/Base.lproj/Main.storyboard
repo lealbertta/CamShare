@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Service Select View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ServiceSelectViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,82 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5o-xc-0eY">
+                                <rect key="frame" x="258" y="90" width="84" height="30"/>
+                                <state key="normal" title="Host stream"/>
+                                <connections>
+                                    <segue destination="U9V-qr-BRr" kind="show" id="UlA-Kh-WhX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FjL-gF-c4u">
+                                <rect key="frame" x="230" y="188" width="140" height="30"/>
+                                <state key="normal" title="Connect to a stream"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="u5o-xc-0eY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wj1-GN-AtA"/>
+                            <constraint firstItem="FjL-gF-c4u" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mwm-fl-YrJ"/>
+                            <constraint firstItem="FjL-gF-c4u" firstAttribute="top" secondItem="u5o-xc-0eY" secondAttribute="bottom" constant="68" id="qFi-Ic-imf"/>
+                            <constraint firstItem="u5o-xc-0eY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="70" id="qXO-Xb-2br"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Camera Host View Controller-->
+        <scene sceneID="ITh-tz-Trg">
+            <objects>
+                <viewController id="3GG-Je-rpV" customClass="CameraHostViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wTP-HH-ojK"/>
+                        <viewControllerLayoutGuide type="bottom" id="qye-xh-hSV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2SN-id-vyX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJ2-ib-dRc" userLabel="Camera Preview ">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hJ2-ib-dRc" firstAttribute="leading" secondItem="2SN-id-vyX" secondAttribute="leading" id="1O8-WQ-seU"/>
+                            <constraint firstAttribute="trailing" secondItem="hJ2-ib-dRc" secondAttribute="trailing" id="Ewo-zZ-u6G"/>
+                            <constraint firstItem="qye-xh-hSV" firstAttribute="top" secondItem="hJ2-ib-dRc" secondAttribute="bottom" id="KDC-iF-Na6"/>
+                            <constraint firstItem="hJ2-ib-dRc" firstAttribute="top" secondItem="wTP-HH-ojK" secondAttribute="bottom" id="zHg-S9-JzP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Pbj-gH-0tX"/>
+                    <connections>
+                        <outlet property="cameraPreview" destination="hJ2-ib-dRc" id="IZm-nc-p8F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d22-vg-niB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1996" y="438"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="H4V-6f-Zw3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="U9V-qr-BRr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="s1a-Gv-5hb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3GG-Je-rpV" kind="relationship" relationship="rootViewController" id="02m-J1-QaH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1nM-us-hDy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1184" y="438"/>
         </scene>
     </scenes>
 </document>

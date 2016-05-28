@@ -15,6 +15,10 @@
 		CD64B5681CF8804000BED3BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD64B5661CF8804000BED3BF /* LaunchScreen.storyboard */; };
 		CD64B5731CF8804000BED3BF /* CamShareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B5721CF8804000BED3BF /* CamShareTests.m */; };
 		CD64B57E1CF8804000BED3BF /* CamShareUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B57D1CF8804000BED3BF /* CamShareUITests.m */; };
+		CD64B58D1CF8809A00BED3BF /* ServiceSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B58C1CF8809A00BED3BF /* ServiceSelectViewController.m */; };
+		CD64B5911CF8812000BED3BF /* AVCaptureMultipeerVideoDataOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B5901CF8812000BED3BF /* AVCaptureMultipeerVideoDataOutput.m */; };
+		CD64B5941CF881D000BED3BF /* CameraHostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B5931CF881D000BED3BF /* CameraHostViewController.m */; };
+		CD64B5971CF9279000BED3BF /* CameraViewCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B5961CF9279000BED3BF /* CameraViewCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,14 @@
 		CD64B5791CF8804000BED3BF /* CamShareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CamShareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD64B57D1CF8804000BED3BF /* CamShareUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CamShareUITests.m; sourceTree = "<group>"; };
 		CD64B57F1CF8804000BED3BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD64B58B1CF8809A00BED3BF /* ServiceSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceSelectViewController.h; sourceTree = "<group>"; };
+		CD64B58C1CF8809A00BED3BF /* ServiceSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceSelectViewController.m; sourceTree = "<group>"; };
+		CD64B58F1CF8812000BED3BF /* AVCaptureMultipeerVideoDataOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCaptureMultipeerVideoDataOutput.h; sourceTree = "<group>"; };
+		CD64B5901CF8812000BED3BF /* AVCaptureMultipeerVideoDataOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCaptureMultipeerVideoDataOutput.m; sourceTree = "<group>"; };
+		CD64B5921CF881D000BED3BF /* CameraHostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraHostViewController.h; sourceTree = "<group>"; };
+		CD64B5931CF881D000BED3BF /* CameraHostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraHostViewController.m; sourceTree = "<group>"; };
+		CD64B5951CF9279000BED3BF /* CameraViewCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewCollectionViewController.h; sourceTree = "<group>"; };
+		CD64B5961CF9279000BED3BF /* CameraViewCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewCollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +113,9 @@
 		CD64B5571CF8803F00BED3BF /* CamShare */ = {
 			isa = PBXGroup;
 			children = (
+				CD64B58F1CF8812000BED3BF /* AVCaptureMultipeerVideoDataOutput.h */,
+				CD64B5901CF8812000BED3BF /* AVCaptureMultipeerVideoDataOutput.m */,
+				CD64B58E1CF880B200BED3BF /* View Controllers */,
 				CD64B55B1CF8804000BED3BF /* AppDelegate.h */,
 				CD64B55C1CF8804000BED3BF /* AppDelegate.m */,
 				CD64B55E1CF8804000BED3BF /* ViewController.h */,
@@ -138,6 +153,19 @@
 				CD64B57F1CF8804000BED3BF /* Info.plist */,
 			);
 			path = CamShareUITests;
+			sourceTree = "<group>";
+		};
+		CD64B58E1CF880B200BED3BF /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CD64B58B1CF8809A00BED3BF /* ServiceSelectViewController.h */,
+				CD64B58C1CF8809A00BED3BF /* ServiceSelectViewController.m */,
+				CD64B5921CF881D000BED3BF /* CameraHostViewController.h */,
+				CD64B5931CF881D000BED3BF /* CameraHostViewController.m */,
+				CD64B5951CF9279000BED3BF /* CameraViewCollectionViewController.h */,
+				CD64B5961CF9279000BED3BF /* CameraViewCollectionViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,9 +298,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD64B5911CF8812000BED3BF /* AVCaptureMultipeerVideoDataOutput.m in Sources */,
+				CD64B58D1CF8809A00BED3BF /* ServiceSelectViewController.m in Sources */,
 				CD64B5601CF8804000BED3BF /* ViewController.m in Sources */,
 				CD64B55D1CF8804000BED3BF /* AppDelegate.m in Sources */,
 				CD64B55A1CF8804000BED3BF /* main.m in Sources */,
+				CD64B5971CF9279000BED3BF /* CameraViewCollectionViewController.m in Sources */,
+				CD64B5941CF881D000BED3BF /* CameraHostViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
