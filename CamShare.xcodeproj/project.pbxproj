@@ -19,6 +19,7 @@
 		CD64B5911CF8812000BED3BF /* AVCaptureMultipeerVideoDataOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B5901CF8812000BED3BF /* AVCaptureMultipeerVideoDataOutput.m */; };
 		CD64B5941CF881D000BED3BF /* CameraHostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B5931CF881D000BED3BF /* CameraHostViewController.m */; };
 		CD64B5971CF9279000BED3BF /* CameraViewCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B5961CF9279000BED3BF /* CameraViewCollectionViewController.m */; };
+		CD64B59A1CFB891A00BED3BF /* MultipeerGuestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B5991CFB891A00BED3BF /* MultipeerGuestClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		CD64B5931CF881D000BED3BF /* CameraHostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraHostViewController.m; sourceTree = "<group>"; };
 		CD64B5951CF9279000BED3BF /* CameraViewCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewCollectionViewController.h; sourceTree = "<group>"; };
 		CD64B5961CF9279000BED3BF /* CameraViewCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewCollectionViewController.m; sourceTree = "<group>"; };
+		CD64B5981CFB891A00BED3BF /* MultipeerGuestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipeerGuestClient.h; sourceTree = "<group>"; };
+		CD64B5991CFB891A00BED3BF /* MultipeerGuestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipeerGuestClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 			children = (
 				CD64B58F1CF8812000BED3BF /* AVCaptureMultipeerVideoDataOutput.h */,
 				CD64B5901CF8812000BED3BF /* AVCaptureMultipeerVideoDataOutput.m */,
+				CD64B5981CFB891A00BED3BF /* MultipeerGuestClient.h */,
+				CD64B5991CFB891A00BED3BF /* MultipeerGuestClient.m */,
 				CD64B58E1CF880B200BED3BF /* View Controllers */,
 				CD64B55B1CF8804000BED3BF /* AppDelegate.h */,
 				CD64B55C1CF8804000BED3BF /* AppDelegate.m */,
@@ -305,6 +310,7 @@
 				CD64B55A1CF8804000BED3BF /* main.m in Sources */,
 				CD64B5971CF9279000BED3BF /* CameraViewCollectionViewController.m in Sources */,
 				CD64B5941CF881D000BED3BF /* CameraHostViewController.m in Sources */,
+				CD64B59A1CFB891A00BED3BF /* MultipeerGuestClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
