@@ -7,8 +7,17 @@
 //
 
 #import "CameraViewCollectionViewController.h"
+#import "MultipeerGuestClient.h"
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface CameraViewCollectionViewController ()
+@interface CameraViewCollectionViewController () <MCNearbyServiceBrowserDelegate, MCSessionDelegate, UICollectionViewDataSource, UICollectionViewDelegate, MultipeerGuestClientDelegate>
+
+@property (strong, nonatomic) MCPeerID *myDevicePeerId;
+@property (strong, nonatomic) MCSession *session;
+@property (strong, nonatomic) MCNearbyServiceBrowser *browser;
+@property (strong, nonatomic) NSMutableDictionary *peers;
+
 
 @property NSInteger connectionCount;
 
@@ -80,5 +89,99 @@ static NSString * const reuseIdentifier = @"Cell";
 	
 }
 */
+
+#pragma mark - MCSessionDelegate
+
+- (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state {
+    switch (state) {
+        case MCSessionStateConnected: {
+            NSLog(@"PEER CONNECTED: %@", peerID.displayName);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSIndexPath* indexPath = [NSIndexPath indexPathForItem:self.connectionCount inSection:0];
+                
+                MultipeerGuestClient *newSession = [[MultipeerGuestClient alloc] initWithPeer:peerID atIndexPath:indexPath];
+                newSession.delegate = self;
+                
+                self.peers[peerID.displayName] = newSession;
+                self.connectionCount++;
+                
+                [self.collectionView reloadData];
+            });
+            
+            break;
+        }
+        case MCSessionStateConnecting:
+            NSLog(@"PEER CONNECTING: %@", peerID.displayName);
+            //TODO: Add loading animation
+            break;
+        case MCSessionStateNotConnected: {
+            NSLog(@"PEER NOT CONNECTED: %@", peerID.displayName);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                MultipeerGuestClient* peer = self.peers[peerID.displayName];
+                [peer stopPlaying];
+                peer = nil;
+                
+                [self.peers removeObjectForKey:peerID.displayName];
+                
+                self.connectionCount--;
+                [self.collectionView reloadData];
+            });
+            break;
+        }
+    }
+}
+
+- (void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID {
+    
+    NSDictionary *dict = (NSDictionary *) [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    UIImage *image = [UIImage imageWithData:dict[@"image"] scale:2.0];
+    NSNumber *framesPerSecond = dict[@"framesPerSecond"];
+    
+    MultipeerGuestClient *currentClient = self.peers[peerID.displayName];
+    [currentClient addImageFrame:image withFPS:framesPerSecond];
+}
+
+- (void)session:(MCSession *)session didReceiveStream:(NSInputStream *)stream withName:(NSString *)streamName fromPeer:(MCPeerID *)peerID {
+}
+
+- (void)session:(MCSession *)session didStartReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID withProgress:(NSProgress *)progress {
+}
+
+- (void)session:(MCSession *)session didFinishReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID atURL:(NSURL *)localURL withError:(NSError *)error {
+}
+
+#pragma mark - MCNearbyServiceBrowserDelegate
+
+- (void) browser:(MCNearbyServiceBrowser *)browser didNotStartBrowsingForPeers:(NSError *)error {
+    
+}
+
+- (void) browser:(MCNearbyServiceBrowser *)browser foundPeer:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info {
+    [browser invitePeer:peerID toSession:self.session withContext:nil timeout:0];
+}
+
+- (void) browser:(MCNearbyServiceBrowser *)browser lostPeer:(MCPeerID *)peerID {
+    
+}
+
+#pragma mark - GuestClient delegate
+
+- (void) showImage:(UIImage *)image atIndexPath:(NSIndexPath *)indexPath {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //TODO: load frames of video
+    });
+}
+
+- (void) raiseFramerateForPeer:(MCPeerID *)peerID {
+    NSData* data = [@"raiseFramerate" dataUsingEncoding:NSUTF8StringEncoding];
+    [self.session sendData:data toPeers:@[peerID] withMode:MCSessionSendDataReliable error:nil];
+}
+
+- (void) lowerFramerateForPeer:(MCPeerID *)peerID {
+    NSData* data = [@"lowerFramerate" dataUsingEncoding:NSUTF8StringEncoding];
+    [self.session sendData:data toPeers:@[peerID] withMode:MCSessionSendDataReliable error:nil];
+}
 
 @end
