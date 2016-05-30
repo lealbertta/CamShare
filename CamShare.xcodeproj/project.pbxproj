@@ -20,6 +20,8 @@
 		CD64B5941CF881D000BED3BF /* CameraHostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B5931CF881D000BED3BF /* CameraHostViewController.m */; };
 		CD64B5971CF9279000BED3BF /* CameraViewCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B5961CF9279000BED3BF /* CameraViewCollectionViewController.m */; };
 		CD64B59A1CFB891A00BED3BF /* MultipeerGuestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B5991CFB891A00BED3BF /* MultipeerGuestClient.m */; };
+		CD64B59F1CFC837200BED3BF /* StreamCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B59D1CFC837200BED3BF /* StreamCollectionViewCell.m */; };
+		CD64B5A01CFC837200BED3BF /* StreamCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD64B59E1CFC837200BED3BF /* StreamCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,9 @@
 		CD64B5961CF9279000BED3BF /* CameraViewCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewCollectionViewController.m; sourceTree = "<group>"; };
 		CD64B5981CFB891A00BED3BF /* MultipeerGuestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipeerGuestClient.h; sourceTree = "<group>"; };
 		CD64B5991CFB891A00BED3BF /* MultipeerGuestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipeerGuestClient.m; sourceTree = "<group>"; };
+		CD64B59C1CFC837200BED3BF /* StreamCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamCollectionViewCell.h; sourceTree = "<group>"; };
+		CD64B59D1CFC837200BED3BF /* StreamCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamCollectionViewCell.m; sourceTree = "<group>"; };
+		CD64B59E1CFC837200BED3BF /* StreamCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StreamCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,14 +125,13 @@
 				CD64B5901CF8812000BED3BF /* AVCaptureMultipeerVideoDataOutput.m */,
 				CD64B5981CFB891A00BED3BF /* MultipeerGuestClient.h */,
 				CD64B5991CFB891A00BED3BF /* MultipeerGuestClient.m */,
+				CD64B59B1CFC833B00BED3BF /* Views */,
 				CD64B58E1CF880B200BED3BF /* View Controllers */,
 				CD64B55B1CF8804000BED3BF /* AppDelegate.h */,
 				CD64B55C1CF8804000BED3BF /* AppDelegate.m */,
 				CD64B55E1CF8804000BED3BF /* ViewController.h */,
 				CD64B55F1CF8804000BED3BF /* ViewController.m */,
-				CD64B5611CF8804000BED3BF /* Main.storyboard */,
 				CD64B5641CF8804000BED3BF /* Assets.xcassets */,
-				CD64B5661CF8804000BED3BF /* LaunchScreen.storyboard */,
 				CD64B5691CF8804000BED3BF /* Info.plist */,
 				CD64B5581CF8803F00BED3BF /* Supporting Files */,
 			);
@@ -171,6 +175,18 @@
 				CD64B5961CF9279000BED3BF /* CameraViewCollectionViewController.m */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		CD64B59B1CFC833B00BED3BF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CD64B5611CF8804000BED3BF /* Main.storyboard */,
+				CD64B5661CF8804000BED3BF /* LaunchScreen.storyboard */,
+				CD64B59C1CFC837200BED3BF /* StreamCollectionViewCell.h */,
+				CD64B59D1CFC837200BED3BF /* StreamCollectionViewCell.m */,
+				CD64B59E1CFC837200BED3BF /* StreamCollectionViewCell.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +292,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD64B5A01CFC837200BED3BF /* StreamCollectionViewCell.xib in Resources */,
 				CD64B5681CF8804000BED3BF /* LaunchScreen.storyboard in Resources */,
 				CD64B5651CF8804000BED3BF /* Assets.xcassets in Resources */,
 				CD64B5631CF8804000BED3BF /* Main.storyboard in Resources */,
@@ -305,6 +322,7 @@
 			files = (
 				CD64B5911CF8812000BED3BF /* AVCaptureMultipeerVideoDataOutput.m in Sources */,
 				CD64B58D1CF8809A00BED3BF /* ServiceSelectViewController.m in Sources */,
+				CD64B59F1CFC837200BED3BF /* StreamCollectionViewCell.m in Sources */,
 				CD64B5601CF8804000BED3BF /* ViewController.m in Sources */,
 				CD64B55D1CF8804000BED3BF /* AppDelegate.m in Sources */,
 				CD64B55A1CF8804000BED3BF /* main.m in Sources */,
@@ -454,6 +472,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CamShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = albeeele.CamShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -465,6 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CamShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = albeeele.CamShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";

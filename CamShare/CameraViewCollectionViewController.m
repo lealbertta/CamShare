@@ -8,6 +8,7 @@
 
 #import "CameraViewCollectionViewController.h"
 #import "MultipeerGuestClient.h"
+#import "StreamCollectionViewCell.h"
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 #import <AVFoundation/AVFoundation.h>
 
@@ -25,15 +26,24 @@
 
 @implementation CameraViewCollectionViewController
 
-static NSString * const reuseIdentifier = @"Cell";
+static NSString * const reuseIdentifier = @"StreamCollectionViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.connectionCount = 0;
     
+    self.peers = @{}.mutableCopy;
+    self.myDevicePeerId = [[MCPeerID alloc] initWithDisplayName:[[UIDevice currentDevice] name]];
+    self.session = [[MCSession alloc] initWithPeer:self.myDevicePeerId
+                                  securityIdentity:nil
+                              encryptionPreference:MCEncryptionNone];
+    self.session.delegate = self;
     
-    
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    self.browser = [[MCNearbyServiceBrowser alloc] initWithPeer:self.myDevicePeerId
+                                                    serviceType:@"multipeer-video"];
+    self.browser.delegate = self;
+    [self.browser startBrowsingForPeers];
+    [self.collectionView registerClass:[StreamCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,9 +63,8 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    StreamCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-
     return cell;
 }
 
@@ -152,9 +161,14 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)session:(MCSession *)session didFinishReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID atURL:(NSURL *)localURL withError:(NSError *)error {
 }
 
+- (void) session:(MCSession*)session didReceiveCertificate:(NSArray*)certificate fromPeer:(MCPeerID*)peerID certificateHandler:(void (^)(BOOL accept))certificateHandler {
+    certificateHandler(YES);
+}
+
 #pragma mark - MCNearbyServiceBrowserDelegate
 
 - (void) browser:(MCNearbyServiceBrowser *)browser didNotStartBrowsingForPeers:(NSError *)error {
+    NSLog(error);
     
 }
 
@@ -163,14 +177,15 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (void) browser:(MCNearbyServiceBrowser *)browser lostPeer:(MCPeerID *)peerID {
-    
+    //TODO: Show user the connection has been lost
 }
 
 #pragma mark - GuestClient delegate
 
 - (void) showImage:(UIImage *)image atIndexPath:(NSIndexPath *)indexPath {
     dispatch_async(dispatch_get_main_queue(), ^{
-        //TODO: load frames of video
+        StreamCollectionViewCell *cell = (StreamCollectionViewCell *) [self.collectionView cellForItemAtIndexPath:indexPath];
+        [cell.streamImageView setImage:image];
     });
 }
 
