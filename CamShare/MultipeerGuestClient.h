@@ -22,7 +22,7 @@
 @property (strong, nonatomic) id delegate;
 @property BOOL useAutoFramerate;
 
-- (instancetype) initWithPeer:(MCPeerID*) peerID atIndexPath:(NSIndexPath*) indexPath;
+- (instancetype)initWithPeer:(MCPeerID*) peerID forIndexPath:(NSIndexPath*) indexPath;
 
 - (void) addImageFrame:(UIImage*) image withFPS:(NSNumber*) fps;
 - (void) stopPlaying;

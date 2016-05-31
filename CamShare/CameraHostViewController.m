@@ -28,26 +28,23 @@
     
     AVCaptureVideoPreviewLayer *captureVideoPreviewLayer = [AVCaptureVideoPreviewLayer layerWithSession:self.captureSession];
     captureVideoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-    captureVideoPreviewLayer.frame = CGRectMake(0,0, 320, 320);
+    captureVideoPreviewLayer.frame = self.view.frame;
     [self.cameraPreview.layer addSublayer:captureVideoPreviewLayer];
     
     AVCaptureDevice *videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     
     AVCaptureDeviceInput *videoDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:nil];
-    [_captureSession addInput:videoDeviceInput];
     
     AVCaptureMultipeerVideoDataOutput *videoOutput = [[AVCaptureMultipeerVideoDataOutput alloc] initWithDisplayName:[[UIDevice currentDevice] name]
                                                                                                       withAssistant:NO];
-    [_captureSession addOutput:videoOutput];
-    
+    [self.captureSession addInput:videoDeviceInput];
+    [self.captureSession addOutput:videoOutput];
     [self setFrameRate:15 onDevice:videoDevice];
-    
     [self.captureSession startRunning];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void) setFrameRate:(NSInteger) framerate onDevice:(AVCaptureDevice*) videoDevice {

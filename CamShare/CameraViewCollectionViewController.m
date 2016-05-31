@@ -43,7 +43,7 @@ static NSString * const reuseIdentifier = @"StreamCollectionViewCell";
                                                     serviceType:@"multipeer-video"];
     self.browser.delegate = self;
     [self.browser startBrowsingForPeers];
-    [self.collectionView registerClass:[StreamCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerNib:[UINib nibWithNibName:reuseIdentifier bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,40 +64,20 @@ static NSString * const reuseIdentifier = @"StreamCollectionViewCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     StreamCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
     return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout*)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(self.collectionView.frame.size.width, self.collectionView.frame.size.height/3);
 }
 
 #pragma mark <UICollectionViewDelegate>
 
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    //TODO: Navigate to fullscreen mode of stream
 }
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 #pragma mark - MCSessionDelegate
 
@@ -108,7 +88,7 @@ static NSString * const reuseIdentifier = @"StreamCollectionViewCell";
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSIndexPath* indexPath = [NSIndexPath indexPathForItem:self.connectionCount inSection:0];
                 
-                MultipeerGuestClient *newSession = [[MultipeerGuestClient alloc] initWithPeer:peerID atIndexPath:indexPath];
+                MultipeerGuestClient *newSession = [[MultipeerGuestClient alloc] initWithPeer:peerID forIndexPath:indexPath];
                 newSession.delegate = self;
                 
                 self.peers[peerID.displayName] = newSession;
@@ -168,8 +148,6 @@ static NSString * const reuseIdentifier = @"StreamCollectionViewCell";
 #pragma mark - MCNearbyServiceBrowserDelegate
 
 - (void) browser:(MCNearbyServiceBrowser *)browser didNotStartBrowsingForPeers:(NSError *)error {
-    NSLog(error);
-    
 }
 
 - (void) browser:(MCNearbyServiceBrowser *)browser foundPeer:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info {
@@ -185,7 +163,11 @@ static NSString * const reuseIdentifier = @"StreamCollectionViewCell";
 - (void) showImage:(UIImage *)image atIndexPath:(NSIndexPath *)indexPath {
     dispatch_async(dispatch_get_main_queue(), ^{
         StreamCollectionViewCell *cell = (StreamCollectionViewCell *) [self.collectionView cellForItemAtIndexPath:indexPath];
-        [cell.streamImageView setImage:image];
+        UIImage *resizedImage = [self cropImage:image toRect:CGRectMake(cell.frame.origin.x,
+                                                                        cell.frame.origin.y,
+                                                                        self.collectionView.frame.size.width,
+                                                                        self.collectionView.frame.size.height/3)];
+        [cell.streamImageView setImage:resizedImage];
     });
 }
 
@@ -198,5 +180,16 @@ static NSString * const reuseIdentifier = @"StreamCollectionViewCell";
     NSData* data = [@"lowerFramerate" dataUsingEncoding:NSUTF8StringEncoding];
     [self.session sendData:data toPeers:@[peerID] withMode:MCSessionSendDataReliable error:nil];
 }
+
+#pragma mark - Helper Methods 
+
+- (UIImage *)cropImage:(UIImage *)imageToCrop toRect:(CGRect)rect {
+    CGImageRef imageRef = CGImageCreateWithImageInRect([imageToCrop CGImage], rect);
+    UIImage *cropped = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    
+    return cropped;
+}
+
 
 @end
