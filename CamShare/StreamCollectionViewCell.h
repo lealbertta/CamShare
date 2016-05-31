@@ -11,5 +11,6 @@
 @interface StreamCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *streamImageView;
+@property (weak, nonatomic) IBOutlet UILabel *hostNameLabel;
 
 @end

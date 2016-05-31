@@ -7,28 +7,51 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StreamCollectionViewCell" id="gTV-IL-0wX" customClass="StreamCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="131" height="174"/>
+            <rect key="frame" x="0.0" y="0.0" width="421" height="174"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="131" height="174"/>
+                <rect key="frame" x="0.0" y="0.0" width="421" height="174"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kDo-Zj-PAh">
-                        <rect key="frame" x="0.0" y="0.0" width="131" height="174"/>
+                        <rect key="frame" x="0.0" y="0.0" width="421" height="174"/>
                     </imageView>
+                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Psf-UJ-kIG">
+                        <rect key="frame" x="319" y="137.5" width="102" height="36.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSE-8A-Hjn">
+                        <rect key="frame" x="327" y="145.5" width="86" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
                 <constraint firstItem="kDo-Zj-PAh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="88y-nH-XAn"/>
+                <constraint firstAttribute="bottom" secondItem="YSE-8A-Hjn" secondAttribute="bottom" constant="8" id="EyA-97-dL0"/>
                 <constraint firstAttribute="trailing" secondItem="kDo-Zj-PAh" secondAttribute="trailing" id="RGW-M6-F38"/>
+                <constraint firstAttribute="bottom" secondItem="Psf-UJ-kIG" secondAttribute="bottom" id="Rkw-86-b1h"/>
                 <constraint firstItem="kDo-Zj-PAh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="V80-uD-fbq"/>
+                <constraint firstItem="Psf-UJ-kIG" firstAttribute="leading" secondItem="YSE-8A-Hjn" secondAttribute="leading" constant="-8" id="XeB-Ei-lP2"/>
+                <constraint firstAttribute="trailing" secondItem="YSE-8A-Hjn" secondAttribute="trailing" constant="8" id="Ymu-af-qKX"/>
+                <constraint firstAttribute="trailing" secondItem="Psf-UJ-kIG" secondAttribute="trailing" id="bUt-ZM-VLg"/>
                 <constraint firstAttribute="bottom" secondItem="kDo-Zj-PAh" secondAttribute="bottom" id="mt9-1O-VPC"/>
+                <constraint firstItem="Psf-UJ-kIG" firstAttribute="top" secondItem="YSE-8A-Hjn" secondAttribute="top" constant="-8" id="olL-ox-1ez"/>
+                <constraint firstItem="YSE-8A-Hjn" firstAttribute="top" secondItem="Psf-UJ-kIG" secondAttribute="bottom" constant="-50" id="wFp-6q-QSH"/>
             </constraints>
-            <size key="customSize" width="131" height="174"/>
+            <size key="customSize" width="421" height="174"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="wFp-6q-QSH"/>
+                </mask>
+            </variation>
             <connections>
+                <outlet property="hostNameLabel" destination="YSE-8A-Hjn" id="Mkp-cD-YHS"/>
                 <outlet property="streamImageView" destination="kDo-Zj-PAh" id="QAJ-ND-ZuW"/>
             </connections>
-            <point key="canvasLocation" x="249.5" y="370"/>
+            <point key="canvasLocation" x="394.5" y="370"/>
         </collectionViewCell>
     </objects>
 </document>

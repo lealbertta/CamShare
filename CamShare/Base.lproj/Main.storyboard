@@ -16,15 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5o-xc-0eY">
-                                <rect key="frame" x="258" y="90" width="84" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5o-xc-0eY">
+                                <rect key="frame" x="258" y="134" width="84" height="30"/>
                                 <state key="normal" title="Host stream"/>
                                 <connections>
                                     <segue destination="3GG-Je-rpV" kind="show" action="showDetailViewController:sender:" id="Pta-uu-olv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FjL-gF-c4u">
-                                <rect key="frame" x="230" y="188" width="140" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FjL-gF-c4u">
+                                <rect key="frame" x="230" y="232" width="140" height="30"/>
                                 <state key="normal" title="Connect to a stream"/>
                                 <connections>
                                     <segue destination="uTF-sI-Xzb" kind="show" id="ZgP-vt-BTE"/>
@@ -101,6 +101,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="N3T-1j-ysD" kind="show" id="FYG-8K-ChV"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -112,6 +115,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uA6-fB-tXU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1982" y="754"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jV2-TN-ZLK">
+            <objects>
+                <viewController id="N3T-1j-ysD" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p76-Eb-dNk"/>
+                        <viewControllerLayoutGuide type="bottom" id="js8-pG-l5v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qqa-iQ-t9Y">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Afh-uY-Dl1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2746" y="754"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2Xj-iT-TU9">

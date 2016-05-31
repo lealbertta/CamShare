@@ -11,9 +11,10 @@
 
 @protocol MultipeerGuestClientDelegate <NSObject>
 
-- (void) showImage:(UIImage*) image atIndexPath:(NSIndexPath*) indexPath;
-- (void) raiseFramerateForPeer:(MCPeerID*) peerID;
-- (void) lowerFramerateForPeer:(MCPeerID*) peerID;
+- (void)setHostName:(NSString *)hostName atIndexPath:(NSIndexPath *)indexPath;
+- (void)showImage:(UIImage *)image atIndexPath:(NSIndexPath *)indexPath;
+- (void)raiseFramerateForPeer:(MCPeerID *)peerID;
+- (void)lowerFramerateForPeer:(MCPeerID *)peerID;
 
 @end
 
@@ -22,9 +23,9 @@
 @property (strong, nonatomic) id delegate;
 @property BOOL useAutoFramerate;
 
-- (instancetype)initWithPeer:(MCPeerID*) peerID forIndexPath:(NSIndexPath*) indexPath;
+- (instancetype)initWithPeer:(MCPeerID *)peerID forIndexPath:(NSIndexPath *)indexPath;
 
-- (void) addImageFrame:(UIImage*) image withFPS:(NSNumber*) fps;
-- (void) stopPlaying;
+- (void)addImageFrame:(UIImage *)image withFPS:(NSNumber *)fps;
+- (void)stopPlaying;
 
 @end

@@ -32,7 +32,7 @@
         _peerID = peerID;
         _indexPath = indexPath;
         _numberOfTicksWithFullBuffer = 0;
-        
+        [self.delegate setHostName:peerID.displayName atIndexPath:indexPath];
     }
     return self;
 }
@@ -61,7 +61,7 @@
                     self.numberOfTicksWithFullBuffer = 0;
                     if (delta <= -1) {
                         // lower framerate
-                        if (self.delegate && _fps.floatValue > 5) {
+                        if (self.delegate && self.fps.floatValue > 5) {
                             [self.delegate lowerFramerateForPeer:self.peerID];
                         }
                     }
@@ -69,7 +69,7 @@
             }
             
             if (self.delegate) {
-                [self.delegate showImage:_frames[0] atIndexPath:_indexPath];
+                [self.delegate showImage:self.frames[0] atIndexPath:self.indexPath];
             }
             [self.frames removeObjectAtIndex:0];
             

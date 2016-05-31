@@ -147,20 +147,25 @@ static NSString * const reuseIdentifier = @"StreamCollectionViewCell";
 
 #pragma mark - MCNearbyServiceBrowserDelegate
 
-- (void) browser:(MCNearbyServiceBrowser *)browser didNotStartBrowsingForPeers:(NSError *)error {
+- (void)browser:(MCNearbyServiceBrowser *)browser didNotStartBrowsingForPeers:(NSError *)error {
 }
 
-- (void) browser:(MCNearbyServiceBrowser *)browser foundPeer:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info {
+- (void)browser:(MCNearbyServiceBrowser *)browser foundPeer:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info {
     [browser invitePeer:peerID toSession:self.session withContext:nil timeout:0];
 }
 
-- (void) browser:(MCNearbyServiceBrowser *)browser lostPeer:(MCPeerID *)peerID {
+- (void)browser:(MCNearbyServiceBrowser *)browser lostPeer:(MCPeerID *)peerID {
     //TODO: Show user the connection has been lost
 }
 
 #pragma mark - GuestClient delegate
 
-- (void) showImage:(UIImage *)image atIndexPath:(NSIndexPath *)indexPath {
+- (void)setHostName:(NSString *)hostName atIndexPath:(NSIndexPath *)indexPath{
+    StreamCollectionViewCell *cell = (StreamCollectionViewCell *) [self.collectionView cellForItemAtIndexPath:indexPath];
+    [cell.hostNameLabel setText:hostName];
+}
+
+- (void)showImage:(UIImage *)image atIndexPath:(NSIndexPath *)indexPath {
     dispatch_async(dispatch_get_main_queue(), ^{
         StreamCollectionViewCell *cell = (StreamCollectionViewCell *) [self.collectionView cellForItemAtIndexPath:indexPath];
         UIImage *resizedImage = [self cropImage:image toRect:CGRectMake(cell.frame.origin.x,
@@ -171,12 +176,12 @@ static NSString * const reuseIdentifier = @"StreamCollectionViewCell";
     });
 }
 
-- (void) raiseFramerateForPeer:(MCPeerID *)peerID {
+- (void)raiseFramerateForPeer:(MCPeerID *)peerID {
     NSData* data = [@"raiseFramerate" dataUsingEncoding:NSUTF8StringEncoding];
     [self.session sendData:data toPeers:@[peerID] withMode:MCSessionSendDataReliable error:nil];
 }
 
-- (void) lowerFramerateForPeer:(MCPeerID *)peerID {
+- (void)lowerFramerateForPeer:(MCPeerID *)peerID {
     NSData* data = [@"lowerFramerate" dataUsingEncoding:NSUTF8StringEncoding];
     [self.session sendData:data toPeers:@[peerID] withMode:MCSessionSendDataReliable error:nil];
 }
