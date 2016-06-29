@@ -14,7 +14,6 @@
 @property (nonatomic) BOOL isPlaying;
 @property (nonatomic, strong) NSMutableArray *frames;
 @property (nonatomic, strong) NSTimer *playerClock;
-@property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic, strong) NSNumber *fps;
     
 @property (nonatomic) NSInteger numberOfFramesAtLastTick;
@@ -32,20 +31,22 @@
         _peerID = peerID;
         _indexPath = indexPath;
         _numberOfTicksWithFullBuffer = 0;
-        [self.delegate setHostName:peerID.displayName atIndexPath:indexPath];
+        
     }
     return self;
+}
+
+- (void)setHostNameForIndexPath:(NSIndexPath*)indexPath {
+    [self.delegate setHostName:self.peerID.displayName atIndexPath:indexPath];
 }
 
 - (void) playerClockTick {
     
     NSInteger delta = self.frames.count - self.numberOfFramesAtLastTick;
     self.numberOfFramesAtLastTick = self.frames.count;
+    
     if (self.isPlaying) {
-        
         if (self.frames.count > 1) {
-            
-            
             if (self.useAutoFramerate) {
                 if (self.frames.count >= 10) {
                     if (self.numberOfTicksWithFullBuffer >= 30) {
@@ -84,7 +85,7 @@
     }
 }
 
-- (void) addImageFrame:(UIImage*) image withFPS:(NSNumber*) fps {
+- (void)addImageFrame:(UIImage*)image withFPS:(NSNumber*)fps {
     self.fps = fps;
     if (!self.playerClock || (self.playerClock.timeInterval != (1.0/fps.floatValue))) {
         
@@ -104,7 +105,7 @@
     [self.frames addObject:image];
 }
 
-- (void) stopPlaying {
+- (void)stopPlaying {
     if (self.playerClock) {
         [self.playerClock invalidate];
     }

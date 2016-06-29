@@ -13,6 +13,7 @@
 @interface CameraHostViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView *cameraPreview;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (strong, nonatomic) AVCaptureSession *captureSession;
 @end
 
@@ -29,11 +30,15 @@
     AVCaptureVideoPreviewLayer *captureVideoPreviewLayer = [AVCaptureVideoPreviewLayer layerWithSession:self.captureSession];
     captureVideoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     captureVideoPreviewLayer.frame = self.view.frame;
-    [self.cameraPreview.layer addSublayer:captureVideoPreviewLayer];
+    
+    [self.cameraPreview.layer insertSublayer:captureVideoPreviewLayer atIndex:0];
+    
     
     AVCaptureDevice *videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     
     AVCaptureDeviceInput *videoDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:nil];
+    
+    
     
     AVCaptureMultipeerVideoDataOutput *videoOutput = [[AVCaptureMultipeerVideoDataOutput alloc] initWithDisplayName:[[UIDevice currentDevice] name]
                                                                                                       withAssistant:NO];
@@ -41,13 +46,22 @@
     [self.captureSession addOutput:videoOutput];
     [self setFrameRate:15 onDevice:videoDevice];
     [self.captureSession startRunning];
+    [self.view bringSubviewToFront:self.backButton];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (void) setFrameRate:(NSInteger) framerate onDevice:(AVCaptureDevice*) videoDevice {
+- (IBAction)didTapBackButton:(id)sender {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)setFrameRate:(NSInteger) framerate onDevice:(AVCaptureDevice*) videoDevice {
     if ([videoDevice lockForConfiguration:nil]) {
         videoDevice.activeVideoMaxFrameDuration = CMTimeMake(1,(int)framerate);
         videoDevice.activeVideoMinFrameDuration = CMTimeMake(1,(int)framerate);

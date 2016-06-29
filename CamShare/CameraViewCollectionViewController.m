@@ -9,6 +9,7 @@
 #import "CameraViewCollectionViewController.h"
 #import "MultipeerGuestClient.h"
 #import "StreamCollectionViewCell.h"
+#import "StreamViewController.h"
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 #import <AVFoundation/AVFoundation.h>
 
@@ -27,6 +28,7 @@
 @implementation CameraViewCollectionViewController
 
 static NSString * const reuseIdentifier = @"StreamCollectionViewCell";
+static NSString * const streamNibName = @"StreamViewController";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,6 +46,7 @@ static NSString * const reuseIdentifier = @"StreamCollectionViewCell";
     self.browser.delegate = self;
     [self.browser startBrowsingForPeers];
     [self.collectionView registerNib:[UINib nibWithNibName:reuseIdentifier bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView setBackgroundColor:[UIColor whiteColor]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,7 +79,26 @@ static NSString * const reuseIdentifier = @"StreamCollectionViewCell";
 #pragma mark <UICollectionViewDelegate>
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    //TODO: Navigate to fullscreen mode of stream
+    StreamViewController *streamVC = [[StreamViewController alloc] initWithNibName:streamNibName bundle:nil];
+    StreamCollectionViewCell *cell = (StreamCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    //MultipeerGuestClient *currentClient = self.peers[cell.hostNameLabel.text];
+    
+    for (NSString *key in self.peers) {
+        MultipeerGuestClient *client = [self.peers objectForKey:key];
+        
+        if (client.indexPath == indexPath) {
+            streamVC.mpClient = client;
+            break;
+        }
+    }
+    
+    
+    streamVC.myDevicePeerId = self.myDevicePeerId;
+    streamVC.session = self.session;
+    streamVC.peerID = cell.hostNameLabel.text;
+    
+    
+    [self.navigationController pushViewController:streamVC animated:YES];
 }
 
 #pragma mark - MCSessionDelegate
@@ -86,10 +108,12 @@ static NSString * const reuseIdentifier = @"StreamCollectionViewCell";
         case MCSessionStateConnected: {
             NSLog(@"PEER CONNECTED: %@", peerID.displayName);
             dispatch_async(dispatch_get_main_queue(), ^{
+                
                 NSIndexPath* indexPath = [NSIndexPath indexPathForItem:self.connectionCount inSection:0];
                 
                 MultipeerGuestClient *newSession = [[MultipeerGuestClient alloc] initWithPeer:peerID forIndexPath:indexPath];
                 newSession.delegate = self;
+                [newSession setHostNameForIndexPath:indexPath];
                 
                 self.peers[peerID.displayName] = newSession;
                 self.connectionCount++;
@@ -168,11 +192,11 @@ static NSString * const reuseIdentifier = @"StreamCollectionViewCell";
 - (void)showImage:(UIImage *)image atIndexPath:(NSIndexPath *)indexPath {
     dispatch_async(dispatch_get_main_queue(), ^{
         StreamCollectionViewCell *cell = (StreamCollectionViewCell *) [self.collectionView cellForItemAtIndexPath:indexPath];
-        UIImage *resizedImage = [self cropImage:image toRect:CGRectMake(cell.frame.origin.x,
-                                                                        cell.frame.origin.y,
-                                                                        self.collectionView.frame.size.width,
-                                                                        self.collectionView.frame.size.height/3)];
-        [cell.streamImageView setImage:resizedImage];
+//        UIImage *resizedImage = [self cropImage:image toRect:CGRectMake(cell.frame.origin.x,
+//                                                                        cell.frame.origin.y,
+//                                                                        self.collectionView.frame.size.width,
+//                                                                        self.collectionView.frame.size.height/3)];
+        [cell.streamImageView setImage:image];
     });
 }
 

@@ -10,18 +10,29 @@
 
 @interface ServiceSelectViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *hostButton;
+@property (weak, nonatomic) IBOutlet UIButton *connectButton;
+
 @end
 
 @implementation ServiceSelectViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.hostButton.layer.cornerRadius = 5.0f;
+    self.connectButton.layer.cornerRadius = 5.0f;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
 }
 
 /*

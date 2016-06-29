@@ -22,6 +22,8 @@
 		CD64B59A1CFB891A00BED3BF /* MultipeerGuestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B5991CFB891A00BED3BF /* MultipeerGuestClient.m */; };
 		CD64B59F1CFC837200BED3BF /* StreamCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B59D1CFC837200BED3BF /* StreamCollectionViewCell.m */; };
 		CD64B5A01CFC837200BED3BF /* StreamCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD64B59E1CFC837200BED3BF /* StreamCollectionViewCell.xib */; };
+		CD64B5A41CFE2CA100BED3BF /* StreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD64B5A21CFE2CA100BED3BF /* StreamViewController.m */; };
+		CD64B5A51CFE2CA100BED3BF /* StreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD64B5A31CFE2CA100BED3BF /* StreamViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,9 @@
 		CD64B59C1CFC837200BED3BF /* StreamCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamCollectionViewCell.h; sourceTree = "<group>"; };
 		CD64B59D1CFC837200BED3BF /* StreamCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamCollectionViewCell.m; sourceTree = "<group>"; };
 		CD64B59E1CFC837200BED3BF /* StreamCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StreamCollectionViewCell.xib; sourceTree = "<group>"; };
+		CD64B5A11CFE2CA100BED3BF /* StreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamViewController.h; sourceTree = "<group>"; };
+		CD64B5A21CFE2CA100BED3BF /* StreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamViewController.m; sourceTree = "<group>"; };
+		CD64B5A31CFE2CA100BED3BF /* StreamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StreamViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +178,8 @@
 				CD64B5931CF881D000BED3BF /* CameraHostViewController.m */,
 				CD64B5951CF9279000BED3BF /* CameraViewCollectionViewController.h */,
 				CD64B5961CF9279000BED3BF /* CameraViewCollectionViewController.m */,
+				CD64B5A11CFE2CA100BED3BF /* StreamViewController.h */,
+				CD64B5A21CFE2CA100BED3BF /* StreamViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -185,6 +192,7 @@
 				CD64B59C1CFC837200BED3BF /* StreamCollectionViewCell.h */,
 				CD64B59D1CFC837200BED3BF /* StreamCollectionViewCell.m */,
 				CD64B59E1CFC837200BED3BF /* StreamCollectionViewCell.xib */,
+				CD64B5A31CFE2CA100BED3BF /* StreamViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -295,6 +303,7 @@
 				CD64B5A01CFC837200BED3BF /* StreamCollectionViewCell.xib in Resources */,
 				CD64B5681CF8804000BED3BF /* LaunchScreen.storyboard in Resources */,
 				CD64B5651CF8804000BED3BF /* Assets.xcassets in Resources */,
+				CD64B5A51CFE2CA100BED3BF /* StreamViewController.xib in Resources */,
 				CD64B5631CF8804000BED3BF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +331,7 @@
 			files = (
 				CD64B5911CF8812000BED3BF /* AVCaptureMultipeerVideoDataOutput.m in Sources */,
 				CD64B58D1CF8809A00BED3BF /* ServiceSelectViewController.m in Sources */,
+				CD64B5A41CFE2CA100BED3BF /* StreamViewController.m in Sources */,
 				CD64B59F1CFC837200BED3BF /* StreamCollectionViewCell.m in Sources */,
 				CD64B5601CF8804000BED3BF /* ViewController.m in Sources */,
 				CD64B55D1CF8804000BED3BF /* AppDelegate.m in Sources */,
@@ -556,6 +566,7 @@
 				CD64B5841CF8804000BED3BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD64B5851CF8804000BED3BF /* Build configuration list for PBXNativeTarget "CamShareTests" */ = {
 			isa = XCConfigurationList;
@@ -564,6 +575,7 @@
 				CD64B5871CF8804000BED3BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD64B5881CF8804000BED3BF /* Build configuration list for PBXNativeTarget "CamShareUITests" */ = {
 			isa = XCConfigurationList;
@@ -572,6 +584,7 @@
 				CD64B58A1CF8804000BED3BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

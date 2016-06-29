@@ -21,11 +21,12 @@
 @interface MultipeerGuestClient : NSObject
 
 @property (strong, nonatomic) id delegate;
+@property (nonatomic) NSIndexPath *indexPath;
 @property BOOL useAutoFramerate;
 
 - (instancetype)initWithPeer:(MCPeerID *)peerID forIndexPath:(NSIndexPath *)indexPath;
 
 - (void)addImageFrame:(UIImage *)image withFPS:(NSNumber *)fps;
 - (void)stopPlaying;
-
+- (void)setHostNameForIndexPath:(NSIndexPath*)indexPath;
 @end
