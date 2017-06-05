@@ -14,6 +14,8 @@
 
 @end
 
+static inline double radians (double degrees) {return degrees * M_PI/180;}
+
 @implementation StreamViewController
 
 - (void)viewDidLoad {
@@ -67,7 +69,17 @@
     UIImage *image = [UIImage imageWithData:dict[@"image"] scale:2.0];
     NSNumber *framesPerSecond = dict[@"framesPerSecond"];
     
-    [self.mpClient addImageFrame:image withFPS:framesPerSecond];
+    
+    UIGraphicsBeginImageContext(image.size);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextRotateCTM (context, radians(90));
+    [image drawAtPoint:CGPointMake(0, 0)];
+    
+    UIImage *image2 = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    [self.mpClient addImageFrame:image2 withFPS:framesPerSecond];
 }
 
 - (void)session:(MCSession *)session didReceiveStream:(NSInputStream *)stream withName:(NSString *)streamName fromPeer:(MCPeerID *)peerID {
